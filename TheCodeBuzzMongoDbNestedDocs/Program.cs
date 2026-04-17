@@ -28,6 +28,7 @@ namespace TheCodeBuzzMongoDbNestedDocs
             }
 
             // https://www.mongodb.com/docs/drivers/csharp/current/serialization/class-mapping/
+            // This did NOT make a difference. 3rd level doc (the Review list)
             MongoDB.Bson.Serialization.BsonClassMap.RegisterClassMap<Review>(classmap =>
             {
                 classmap.AutoMap();
@@ -45,9 +46,9 @@ namespace TheCodeBuzzMongoDbNestedDocs
             FirstTests firstTests = new FirstTests(iLoggerForFirstTests);
             firstTests.RunCode(collection);
         }
+
         private static void ConfigureServices(IServiceCollection services)
         {
-
             Logger skippy = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("TheCodeBuzz-LOG.txt").CreateLogger();
 
             //services.AddLogging(configure => configure.AddSerilog(skippy)).AddTransient<FirstTests>(); // works
@@ -55,6 +56,7 @@ namespace TheCodeBuzzMongoDbNestedDocs
             services.AddLogging(configure => configure.AddSerilog(skippy));                              // works
             services.Configure<LoggerFilterOptions>(options => options.MinLevel = LogLevel.Debug);
         }
+
         public static IMongoCollection<LibraryUser> CreateTheDocs(IMongoDatabase? iMongoDatabase, ILogger<Program>? iLoggerForProgram)
         {
             IMongoCollection<LibraryUser> LibraryUsersCollection;
