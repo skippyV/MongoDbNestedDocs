@@ -29,12 +29,12 @@ namespace TheCodeBuzzMongoDbNestedDocs
 
             // https://www.mongodb.com/docs/drivers/csharp/current/serialization/class-mapping/
             // This did NOT make a difference. 3rd level doc (the Review list)
-            MongoDB.Bson.Serialization.BsonClassMap.RegisterClassMap<Review>(classmap =>
-            {
-                classmap.AutoMap();
-                classmap.MapMember(p => p.Reviewer);
-                classmap.MapMember(p => p.Grade);
-            });
+            //MongoDB.Bson.Serialization.BsonClassMap.RegisterClassMap<Review>(classmap =>
+            //{
+            //    classmap.AutoMap();
+            //    classmap.MapMember(p => p.Reviewer);
+            //    classmap.MapMember(p => p.Grade);
+            //});
 
             var mongoClient = new MongoClient(settings);
             IMongoDatabase? iMongoDatabase = mongoClient.GetDatabase("TheCodeBuzz");

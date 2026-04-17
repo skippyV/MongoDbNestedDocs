@@ -12,7 +12,7 @@ namespace TheCodeBuzzMongoDbNestedDocs
 
         public int Price { get; set; }
 
-        List<Review> Reviewers { get; set; } = [];
+        public List<Review> Reviewers { get; set; } = [];
 
         public void AddReview(Review review)
         {
