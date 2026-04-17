@@ -90,7 +90,7 @@ namespace TheCodeBuzzMongoDbNestedDocs
                 Reviewer = "Corin",
                 Grade = 55
             };
-            book.addReview(review); // Add Review doc to Book 
+            book.AddReview(review); // Add Review doc to Book 
 
             userDoc.AddBook(book);  // Add Book doc to LibraryUser doc
 
@@ -106,14 +106,14 @@ namespace TheCodeBuzzMongoDbNestedDocs
                 Reviewer = "Julie",
                 Grade = 66
             };
-            book.addReview(review);
+            book.AddReview(review);
 
             review = new()
             {
                 Reviewer = "Sammy",
                 Grade = 78
             };
-            book.addReview(review);
+            book.AddReview(review);
 
             userDoc.AddBook(book);
 
